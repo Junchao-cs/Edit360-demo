@@ -153,7 +153,7 @@
         type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+        Edit360 enables precise 360-degree 3D edits by applying tailored elements and styles to  3D models following instructions.
       </h2>
     </div>
   </div>
@@ -168,7 +168,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            The integration of diffusion models has advanced image generation and editing, but extending these capabilities to 3D assets remains challenging, particularly for fine-grained edits requiring consistency across multiple perspectives. Existing methods often rely on fixed views or global prompts, limiting flexibility and coherence. We present Edit360, a novel paradigm for precise and consistent 360-degree 3D editing. Edit360 takes a single-view image and user-provided editing instructions as input, employing a large language model (LLM) to determine the optimal editing perspectives, referred to as anchor views. These anchor views are generated using multi-view generation techniques and edited with image editing tools to meet user requirements. To propagate 2D edits from anchor views across the full 360-degree range, Edit360 integrates a video diffusion model enhanced with our proposed Spatial Frame Fusion (SFF) algorithm. By aligning and merging information from multiple views within the residuals and latents of U-Nets, SFF ensures spatial coherence and structural consistency across multi-view sequences. The resulting multi-view sequences are then used to reconstruct high-quality, edited 3D assets, enabling diverse 3D asset customizations in animation, gaming and virtual reality.
           </p>
         </div>
       </div>
@@ -177,40 +177,76 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Start: Method Introduction -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Our Method and Pipline</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong>Edit360</strong> enables precise and consistent 3D asset editing from arbitrary viewpoints by combining large language models (LLMs), image editing, and a novel spatial fusion strategy within video diffusion.
+          </p>
+    
+          <!-- Figure: Pipeline -->
+          <figure class="image" style="margin: 1rem 0;">
+            <img src="static/images/pipline.png" alt="Edit360 Pipeline Overview">
+            <!-- <figcaption style="margin-top: 0.5rem; font-size: 0.95rem;">
+              Figure: Pipeline of Edit360, illustrating how user instructions and anchor views guide the editing of 3D assets.
+            </figcaption> -->
+          </figure>
+
+          <p>
+            The pipeline starts with selecting and editing <em>anchor views</em> based on user instructions, guided by an LLM to identify optimal viewing angles. The edited anchor views and the front view are processed through our <em>Spatial Frame Fusion (SFF)</em> algorithm, which combines latent space fusion and deep-guided fusion to propagate edits consistently across all angles. The resulting multi-view sequence can be reconstructed into a fully edited 3D asset via mesh extraction or 3D Gaussian splatting.
+          </p>
+    
+        </div>
+      </div>
+    </div>
+  </div> <!-- end container -->
+</section>
+<!-- End: Method Introduction -->
+
+<!-- More Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="white-space: nowrap;">More Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End More Results -->
 
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
+        <div class="item">
+          <!-- 包裹在 figure class="image is-3by2" -->
+          <figure class="image is-3by2" style="margin: 0 auto;">
+            <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+          </figure>
+          <h2 class="subtitle has-text-centered">
+           Third image description.
+          </h2>
+        </div>
       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <!-- 包裹在 figure class="image is-3by2" -->
+        <figure class="image is-3by2" style="margin: 0 auto;">
+          <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        </figure>
         <h2 class="subtitle has-text-centered">
          Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
+        </h2>
+      </div>
   </div>
 </div>
 </div>
@@ -221,57 +257,57 @@
 
 
 <!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
-    <div class="container">
+    <div class="container"> -->
       <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+      <!-- <h2 class="title is-3">Video Presentation</h2>
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           
-          <div class="publication-video">
+          <div class="publication-video"> -->
             <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End youtube video -->
 
 
 <!-- Video carousel -->
-<section class="hero is-small">
+<!-- <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
+          <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
             <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
+            <!-- <source src="static/videos/carousel1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
+          <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
+            <!-- <source src="static/videos/carousel2.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
             <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
+            <!-- <source src="static/videos/carousel3.mp4"
             type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 <!-- End video carousel -->
 
 
@@ -280,7 +316,7 @@
 
 
 <!-- Paper poster -->
-<section class="hero is-small is-light">
+<!-- <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <h2 class="title">Poster</h2>
@@ -290,7 +326,7 @@
         
       </div>
     </div>
-  </section>
+  </section> -->
 <!--End paper poster -->
 
 
@@ -312,7 +348,7 @@
 
           <p>
             This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
 
